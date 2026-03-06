@@ -13,7 +13,7 @@
     <div class="login-banner">
         <p>Playing as <strong>Guest</strong> — your history won't be saved.</p>
         <div class="banner-btns">
-            <a href="/login"  class="banner-btn login">Log in</a>
+            <a href="/"  class="banner-btn login">Log in</a>
             <a href="/signup" class="banner-btn signup">Sign up</a>
         </div>
     </div>
@@ -100,8 +100,8 @@
                     </div>
                 @endif
                 <div class="end-btns">
-                    <a href="/guest/game" class="start-btn">Play Again</a>
-                    <a href="/login"      class="login-btn">Log In →</a>
+                    <a href="/number/game/guest" class="start-btn">Play Again</a>
+                    <a href="/"      class="login-btn">Log In →</a>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@
         @if (count($history) > 0 && !($won ?? false) && count($history) < 5)
             <div class="save-note">
                 Want to save your progress and track your games?
-                <a href="/signup">Create a free account</a> or <a href="/login">log in</a>.
+                <a href="/signup">Create a free account</a> or <a href="/">log in</a>.
             </div>
         @endif
 

@@ -82,7 +82,7 @@
         {{-- Login link --}}
         <div class="footer-note">
             Already have an account?
-            <a href="/login">Log in</a>
+            <a href="/">Log in</a>
         </div>
 
     </div>
