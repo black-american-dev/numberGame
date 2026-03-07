@@ -37,7 +37,7 @@ COPY . .
 COPY --from=node_builder /app/public/build /var/www/html/public/build
 
 # Copy docker env
-COPY docker/.env.docker /var/www/html/.env
+#COPY docker/.env.docker /var/www/html/.env
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
