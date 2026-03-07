@@ -1,14 +1,22 @@
 #!/bin/bash
 
-echo "Waiting for MySQL..."
+echo "Waiting for external MySQL..."
 
-until mysqladmin ping -h"$DB_HOST" -u"$DB_USERNAME" -p"$DB_PASSWORD" --silent; do
-    echo "MySQL not ready yet, retrying..."
-    sleep 2
+until mysql \
+  -h"$DB_HOST" \
+  -P"$DB_PORT" \
+  -u"$DB_USERNAME" \
+  -p"$DB_PASSWORD" \
+  -e "SELECT 1" "$DB_DATABASE" >/dev/null 2>&1
+do
+  echo "MySQL not ready yet, retrying..."
+  sleep 3
 done
 
-echo "MySQL is ready!"
+echo "Database connection successful."
 
-php artisan migrate --force
+echo "Running migrations..."
+php artisan migrate --force || true
 
+echo "Starting Apache..."
 apache2-foreground
