@@ -26,9 +26,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 WORKDIR /var/www/html
 
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
 COPY . .
+
+RUN php artisan package:discover --ansi
 
 COPY --from=node_builder /app/public/build /var/www/html/public/build
 
