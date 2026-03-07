@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/game.js'])
+@vite(['resources/css/game.css', 'resources/js/game.js'])
 </head>
 <body>
 
