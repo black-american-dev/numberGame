@@ -1,20 +1,9 @@
 #!/bin/bash
 
-echo "Waiting for external MySQL (Aiven)..."
+echo "Starting Laravel..."
 
-until mysql \
-  --ssl-mode=REQUIRED \
-  -h"$DB_HOST" \
-  -P"$DB_PORT" \
-  -u"$DB_USERNAME" \
-  -p"$DB_PASSWORD" \
-  -e "SELECT 1" "$DB_DATABASE" >/dev/null 2>&1
-do
-  echo "MySQL not ready yet, retrying..."
-  sleep 3
-done
-
-echo "Database connection successful."
+php artisan config:clear
+php artisan config:cache
 
 echo "Running migrations..."
 php artisan migrate --force || true
