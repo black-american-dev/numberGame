@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo "Waiting for external MySQL..."
+echo "Waiting for external MySQL (Aiven)..."
 
 until mysql \
+  --ssl-mode=REQUIRED \
   -h"$DB_HOST" \
   -P"$DB_PORT" \
   -u"$DB_USERNAME" \
